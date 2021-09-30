@@ -1,6 +1,6 @@
-import Head from 'next/head'
 import Layout from '../components/Layout'
 import Testcall from '../components/testcall'
+import TokenContainer from '../components/TokenContainer'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -9,11 +9,9 @@ export default function Home() {
     <div>
       <Layout>
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to Next.js!
-        </h1>
 
-        <Testcall/>
+      <TokenContainer/>
+
       </main>
       </Layout>
 
