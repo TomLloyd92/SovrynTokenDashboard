@@ -5,12 +5,12 @@ function Testcall() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    axios.get(`https://jsonplaceholder.typicode.com/posts`)
+    axios.get(`https://api.covalenthq.com/v1/chains/status/?key=ckey_b5b84bdb25ad4ff4acc7c59812e`)
     .then(res => {
-      //console.log(res.data.data.items);
-      //setItems(res.data.data.items)
-      console.log(res.data);
-      setItems(res.data)
+      console.log(res.data.data.items);
+      setItems(res.data.data.items)
+      //console.log(res.data);
+      //setItems(res.data)
     })
     .catch(err => {
       console.log(err);
@@ -25,20 +25,20 @@ function Testcall() {
   return (
     <div>
       Welcome
-      {/* <ul>
+      <ul>
         {items.map(item => (
           <li key={item.chain_id}>
             {item.name}
           </li>
         ))}
-      </ul> */}
-      <ul>
+      </ul>
+      {/* <ul>
         {items.map(item => (
           <li key={item.id}>
             {item.title}
           </li>
         ))}
-      </ul>
+      </ul> */}
       </div>
   );
 }
