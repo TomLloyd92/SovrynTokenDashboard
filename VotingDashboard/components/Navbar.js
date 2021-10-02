@@ -8,7 +8,8 @@ class Navbar extends Component
 
 
   async getBalance(){
-    console.log(ethers.utils.formatEther(await window.provider.getSigner().getBalance()));
+    console.log(typeof(window.provider()));
+
   }
 
 
