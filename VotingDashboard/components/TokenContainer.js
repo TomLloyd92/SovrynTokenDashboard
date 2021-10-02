@@ -36,7 +36,6 @@ function TokenContainer()
   useEffect(() => {
     axios.get(`https://api.covalenthq.com/v1/30/address/${SOV_TOKEN_ADDRESS}/balances_v2/?&key=ckey_b5b84bdb25ad4ff4acc7c59812e`)
     .then(res => {
-      console.log(res)
       setSovToken(res.data.data.items[0])
     })
     .catch(err => {

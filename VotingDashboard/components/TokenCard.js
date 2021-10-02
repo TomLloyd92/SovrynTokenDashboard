@@ -17,15 +17,21 @@ class TokenCard extends Component
     }
 
     async getBalance(){
-        const signer = provider.getSigner();
-        console.log("Account:", await signer.getAddress());
-        const address = signer.getAddress();
-
-        const balance = await provider.getBalance(address);
-        const balanceInEth = ethers.utils.formatEther(balance);
-        this.setState({
-            balance: balanceInEth
-        })
+        try{
+            await provider.send("eth_requestAccounts", []);
+            provider.getSigner().getAddress();
+            const signer = provider.getSigner();
+            const address = signer.getAddress();
+            console.log("ENTERED")
+            const balance = await provider.getBalance(address);
+            const balanceInEth = ethers.utils.formatEther(balance);
+            this.setState({
+                balance: balanceInEth
+            })
+        }
+        catch(err){
+            console.log(err);
+        }
 
     }
 
