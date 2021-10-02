@@ -8,15 +8,25 @@ class TokenCard extends Component
     {
         super(props);
         this.state = {
-            balance: ''
+            balance: 'CONNECT WALLET TO VIEW BALANCE'
         };
     }
 
+    componentDidMount(){
+        this.getBalance();
+    }
 
-    getBalance(){
-     
+    async getBalance(){
+        const signer = provider.getSigner();
+        console.log("Account:", await signer.getAddress());
+        const address = signer.getAddress();
 
-        return <div>{this.state.balance}</div>
+        const balance = await provider.getBalance(address);
+        const balanceInEth = ethers.utils.formatEther(balance);
+        this.setState({
+            balance: balanceInEth
+        })
+
     }
 
 render(){
@@ -35,7 +45,7 @@ render(){
                 <p className="text-center font-extrabold">
                 </p>
                 <p>
-                    {this.getBalance()}
+                    {this.state.balance}
                 </p>
             </div>
         </div>
