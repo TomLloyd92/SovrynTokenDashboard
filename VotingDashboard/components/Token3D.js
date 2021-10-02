@@ -24,7 +24,6 @@ class Token3D extends Component
                     <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
                     <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
                     <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-
                 </div>
                 <img src={this.props.Token_URL} className='coin__back' width="500" height="600" />
                 <div className="coin__shadow"></div>

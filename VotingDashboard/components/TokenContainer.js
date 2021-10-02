@@ -157,6 +157,12 @@ function TokenContainer()
     return (
         <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
                 {/*SOV TOKEN */}
+                <TokenCard
+                  tokenName = {tokenWRBTC['contract_name']}
+                  tokenTicker = {tokenWRBTC['contract_ticker_symbol']}
+                  token_URL = {tokenWRBTC['logo_url']}
+                  contractAddress = {tokenWRBTC['contract_address']} 
+                />
                 <TokenCard 
                   tokenName = {tokenSov['contract_name']}
                   tokenTicker = {tokenSov['contract_ticker_symbol']}
@@ -170,17 +176,12 @@ function TokenContainer()
                   contractAddress = {tokenDoC['contract_address']} 
                 />
                 <TokenCard
-                  tokenName = {tokenWRBTC['contract_name']}
-                  tokenTicker = {tokenWRBTC['contract_ticker_symbol']}
-                  token_URL = {tokenWRBTC['logo_url']}
-                  contractAddress = {tokenWRBTC['contract_address']} 
+                tokenName = {tokenRIF['contract_name']}
+                tokenTicker = {tokenRIF['contract_ticker_symbol']}
+                token_URL = {tokenRIF['logo_url']}
+                contractAddress = {tokenRIF['contract_address']} 
                 />
-                <TokenCard
-                  tokenName = {tokenUSDT['contract_name']}
-                  tokenTicker = {tokenUSDT['contract_ticker_symbol']}
-                  token_URL = {tokenUSDT['logo_url']}
-                  contractAddress = {tokenUSDT['contract_address']} 
-                />
+               
                 <TokenCard
                   tokenName = {tokenBPRO['contract_name']}
                   tokenTicker = {tokenBPRO['contract_ticker_symbol']}
@@ -217,11 +218,12 @@ function TokenContainer()
                 token_URL = {tokenBNBs['logo_url']}
                 contractAddress = {tokenBNBs['contract_address']} 
                 />
-                <TokenCard
-                tokenName = {tokenRIF['contract_name']}
-                tokenTicker = {tokenRIF['contract_ticker_symbol']}
-                token_URL = {tokenRIF['logo_url']}
-                contractAddress = {tokenRIF['contract_address']} 
+       
+                 <TokenCard
+                  tokenName = {tokenUSDT['contract_name']}
+                  tokenTicker = {tokenUSDT['contract_ticker_symbol']}
+                  token_URL = {tokenUSDT['logo_url']}
+                  contractAddress = {tokenUSDT['contract_address']} 
                 />
         </div>
     )

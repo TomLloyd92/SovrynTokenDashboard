@@ -1,12 +1,20 @@
 import { Component } from "react";
 import { render } from "react-dom";
 import Token3D from "./Token3D"
-
-
+import { ethers } from "ethers";
 
 
 class TokenCard extends Component
 {
+
+    static async getInitialProps(props)
+    {
+        
+    }
+
+    getBalance(){
+        return 0;
+    }
 
 render(){
     return(
@@ -17,16 +25,15 @@ render(){
              Token_URL = {this.props.token_URL}
              />
             <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2">{this.props.tokenName}</div>
-                <p className="sovYellow">
-                {this.props.tokenTicker}
+                <div className="font-bold text-xl mb-2 text-center">{this.props.tokenName}</div>
+                <p className="sovYellow text-center">
+                {this.props.tokenTicker} 
+                </p>
+                <p className="text-center font-extrabold">
+                    {this.props.balance}
                 </p>
             </div>
-            <div className="px-6 pt-4 pb-2">
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#fall</span>
-            </div>
+
         </div>
         )
     }
