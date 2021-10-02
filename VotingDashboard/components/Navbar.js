@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import EngageWallet from './EngageWalletButton';
-import { ethers } from 'ethers';
+
 
 class Navbar extends Component
 {

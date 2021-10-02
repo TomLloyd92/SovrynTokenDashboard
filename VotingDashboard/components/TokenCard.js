@@ -1,18 +1,23 @@
 import { Component } from "react";
 import Token3D from "./Token3D"
 import { ethers } from "ethers";
-
+import provider from "./Provider";
 class TokenCard extends Component
 {
     constructor(props)
     {
         super(props);
         this.state = {
-            balance: '123'
+            balance: ''
         };
     }
 
 
+    getBalance(){
+     
+
+        return <div>{this.state.balance}</div>
+    }
 
 render(){
     return(
@@ -28,11 +33,11 @@ render(){
                 {this.props.tokenTicker} 
                 </p>
                 <p className="text-center font-extrabold">
-                    {(typeof window !== 'undefined' && typeof(window.provider) !== 'undefined') ? this.state.balance : 'Connect Wallet to see balance'}
- 
+                </p>
+                <p>
+                    {this.getBalance()}
                 </p>
             </div>
-
         </div>
         )
     }

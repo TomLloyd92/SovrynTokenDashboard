@@ -1,23 +1,13 @@
 
 import { ethers } from "ethers";
 import { Component } from "react";
-
+import provider from './Provider';
 
 class EngageWallet extends Component
 {
 
     async engageWallet(){
-        
-        window.provider = new ethers.providers.Web3Provider(window.ethereum, "any");
-        // Prompt user for account connections
-        await window.provider.send("eth_requestAccounts", []);
-        const signer = window.provider.getSigner();
-        console.log("Account:", await signer.getAddress());
-        const address = signer.getAddress();
-
-        const balance = await provider.getBalance(address);
-        const balanceInEth = ethers.utils.formatEther(balance);
-        console.log(balanceInEth);
+        await provider.send("eth_requestAccounts", []);
     }
 
     render(){
