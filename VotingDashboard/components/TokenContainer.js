@@ -9,6 +9,7 @@ import { useState, useEffect} from "react";
 function TokenContainer()
 {
 
+  //Mainnet Addresses
   const SOV_TOKEN_ADDRESS =   '0xEfC78FC7D48B64958315949279bA181C2114abbD'
   const DOC_TOKEN_ADDRESS =   '0xe700691da7b9851f2f35f8b8182c69c53ccad9db'
   const WRBTC_TOKEN_ADDRESS = '0x542fDA317318eBF1d3DEAf76E0b632741A7e677d'
@@ -20,6 +21,7 @@ function TokenContainer()
   const FISH_TOKEN_ADDRESS=	  '0x055A902303746382FBB7D18f6aE0df56eFDc5213'		
   const BNBs_TOKEN_ADDRESS=	  '0x6D9659bdF5b1A1dA217f7BbAf7dBAF8190E2e71B'			
   const RIF_TOKEN_ADDRESS =   '0x2acc95758f8b5f583470ba265eb685a8f45fc9d5'
+  
 
   const [tokenSov, setSovToken] = useState([]);
   const [tokenDoC, setDoCToken] = useState([]);
@@ -155,74 +157,73 @@ function TokenContainer()
   );
     return (
         <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
-                {/*SOV TOKEN */}
-                <TokenCard
-                  tokenName = {tokenWRBTC['contract_name']}
-                  tokenTicker = {tokenWRBTC['contract_ticker_symbol']}
-                  token_URL = {tokenWRBTC['logo_url']}
-                  contractAddress = {tokenWRBTC['contract_address']} 
-                />
                 <TokenCard 
                   tokenName = {tokenSov['contract_name']}
                   tokenTicker = {tokenSov['contract_ticker_symbol']}
                   token_URL = {tokenSov['logo_url']}
-                  contractAddress = {tokenSov['contract_address']} 
+                  tokenAddress = {tokenSov['contract_address']} 
+                />
+                <TokenCard
+                  tokenName = {tokenWRBTC['contract_name']}
+                  tokenTicker = {tokenWRBTC['contract_ticker_symbol']}
+                  token_URL = {tokenWRBTC['logo_url']}
+                  tokenAddress = {tokenWRBTC['contract_address']} 
                 />
                 <TokenCard 
                   tokenName = {tokenDoC['contract_name']}
                   tokenTicker = {tokenDoC['contract_ticker_symbol']}
                   token_URL = {tokenDoC['logo_url']}
-                  contractAddress = {tokenDoC['contract_address']} 
+                  tokenAddress = {tokenDoC['contract_address']} 
                 />
                 <TokenCard
                 tokenName = {tokenRIF['contract_name']}
                 tokenTicker = {tokenRIF['contract_ticker_symbol']}
                 token_URL = {tokenRIF['logo_url']}
-                contractAddress = {tokenRIF['contract_address']} 
+                tokenAddress = {tokenRIF['contract_address']} 
                 />
                
                 <TokenCard
                   tokenName = {tokenBPRO['contract_name']}
                   tokenTicker = {tokenBPRO['contract_ticker_symbol']}
                   token_URL = {tokenBPRO['logo_url']}
-                  contractAddress = {tokenBPRO['contract_address']} 
+                  tokenAddress = {tokenBPRO['contract_address']} 
                 />
                 <TokenCard
                 tokenName = {tokenETHs['contract_name']}
                 tokenTicker = {tokenETHs['contract_ticker_symbol']}
                 token_URL = {tokenETHs['logo_url']}
-                contractAddress = {tokenETHs['contract_address']} 
+                tokenAddress = {tokenETHs['contract_address']} 
                 />
                 <TokenCard
                 tokenName = {tokenMoC['contract_name']}
                 tokenTicker = {tokenMoC['contract_ticker_symbol']}
                 token_URL = {tokenMoC['logo_url']}
-                contractAddress = {tokenMoC['contract_address']} 
+                tokenAddress = {tokenMoC['contract_address']} 
                 />
                 <TokenCard
                 tokenName = {tokenXUSD['contract_name']}
                 tokenTicker = {tokenXUSD['contract_ticker_symbol']}
                 token_URL = {tokenXUSD['logo_url']}
-                contractAddress = {tokenXUSD['contract_address']} 
+                tokenAddress = {tokenXUSD['contract_address']} 
                 />
                 <TokenCard
                 tokenName = {tokenFISH['contract_name']}
                 tokenTicker = {tokenFISH['contract_ticker_symbol']}
                 token_URL = {tokenFISH['logo_url']}
-                contractAddress = {tokenFISH['contract_address']} 
+                tokenAddress = {tokenFISH['contract_address']} 
                 />
                 <TokenCard
                 tokenName = {tokenBNBs['contract_name']}
                 tokenTicker = {tokenBNBs['contract_ticker_symbol']}
                 token_URL = {tokenBNBs['logo_url']}
-                contractAddress = {tokenBNBs['contract_address']} 
+                tokenAddress = {tokenBNBs['contract_address']} 
                 />
        
                  <TokenCard
                   tokenName = {tokenUSDT['contract_name']}
                   tokenTicker = {tokenUSDT['contract_ticker_symbol']}
                   token_URL = {tokenUSDT['logo_url']}
-                  contractAddress = {tokenUSDT['contract_address']} 
+                  tokenAddress = {tokenUSDT['contract_address']} 
                 />
         </div>
     )

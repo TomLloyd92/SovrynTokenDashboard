@@ -1,14 +1,14 @@
 import { Component } from "react";
 import Token3D from "./Token3D"
 import { ethers } from "ethers";
-import provider from "./Provider";
 class TokenCard extends Component
 {
     constructor(props)
     {
         super(props);
+
         this.state = {
-            balance: 'CONNECT WALLET TO VIEW BALANCE'
+            balance: 'CONNECT WALLET TO VIEW BALANCE',
         };
     }
 
@@ -16,18 +16,58 @@ class TokenCard extends Component
         this.getBalance();
     }
 
+    async updateBalance()
+    {
+        const BTC_NO_ADDRESS = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee';
+        if(this.props.tokenAddress === BTC_NO_ADDRESS)
+        {
+            //Code for getting wallet balance of native token (RBTC)
+            //For now set to N/A (Fix later)
+            this.setState({
+            balance: "N/A"
+            })
+            return;
+        }
+        //ERC ABI for balance
+        const minABI = [  
+        {    
+            constant: true,
+            inputs: [{ name: "_owner", type: "address" }],
+            name: "balanceOf",
+            outputs: [{ name: "balance", type: "uint256" }],
+            type: "function",
+        }];
+
+        console.log(this.props.tokenAddress)
+        console.log(minABI);
+        console.log(provider);
+
+        const provider = new ethers.providers.Web3Provider(window.ethereum, "any")
+        var tokenContract = new ethers.Contract( this.props.tokenAddress, minABI, provider);
+
+        provider.getSigner().getAddress();
+        const signer = provider.getSigner();
+        const address = signer.getAddress();
+        //console.log(address);
+        var balance = await tokenContract.balanceOf(address);
+
+        const balanceInCoinDenomincation = ethers.utils.formatEther(balance);
+            this.setState({
+                balance: balanceInCoinDenomincation
+            })
+    }
     async getBalance(){
         try{
-            await provider.send("eth_requestAccounts", []);
-            provider.getSigner().getAddress();
-            const signer = provider.getSigner();
-            const address = signer.getAddress();
-            console.log("ENTERED")
-            const balance = await provider.getBalance(address);
-            const balanceInEth = ethers.utils.formatEther(balance);
-            this.setState({
-                balance: balanceInEth
-            })
+            const provider = new ethers.providers.Web3Provider(window.ethereum, "any")
+            await provider.getSigner().getAddress();
+
+            //Recuring call till API loads data
+            if(typeof this.props.tokenAddress !== "undefined"){
+                this.updateBalance();
+            }
+            else{
+                setTimeout(this.getBalance, 250);
+            }
         }
         catch(err){
             console.log(err);
@@ -50,7 +90,7 @@ render(){
                 </p>
                 <p className="text-center font-extrabold">
                 </p>
-                <p>
+                <p className="text-center font-extrabold">
                     {this.state.balance}
                 </p>
             </div>

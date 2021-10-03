@@ -7,7 +7,9 @@ class EngageWallet extends Component
 {
 
     async engageWallet(){
+        const provider = new ethers.providers.Web3Provider(window.ethereum, "any")
         await provider.send("eth_requestAccounts", []);
+        console.log("Engage Wallet Called")
     }
 
     render(){
