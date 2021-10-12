@@ -21,10 +21,16 @@ class TokenCard extends Component
         const BTC_NO_ADDRESS = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee';
         if(this.props.tokenAddress === BTC_NO_ADDRESS)
         {
+            var providerBTC = new ethers.providers.Web3Provider(window.ethereum, "any");
+            var signBTC = providerBTC.getSigner();
+            var addressBTC = signBTC.getAddress();
+            var bignumberbalance = await providerBTC.getBalance(addressBTC);
+            var number = ethers.utils.formatEther(bignumberbalance);
+            var balanceBTC = number;
             //Code for getting wallet balance of native token (RBTC)
             //For now set to N/A (Fix later)
             this.setState({
-            balance: "N/A"
+            balance: balanceBTC
             })
             return;
         }
